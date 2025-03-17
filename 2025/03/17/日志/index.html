@@ -85,7 +85,7 @@ window.MathJax = {
 </ul>
 <h2 id="2025-3-17"><a href="#2025-3-17" class="headerlink" title="2025&#x2F;3&#x2F;17"></a>2025&#x2F;3&#x2F;17</h2><ul>
 <li>完善博客的网页图标以及个人头像</li>
-<li>接入 mathJax 拓展，hingle 主题获得编译 $LaTeX$ 公式的功能。</li>
+<li>接入 mathJax 拓展（安装了 hexo-filter-mathjax ），hingle 主题获得编译 $LaTeX$ 公式的功能。</li>
 <li>解决的$Latex$公式换行问题;</li>
 <li>卸载了 hexo-renderer-prismjs ，安装了 prismjs 。</li>
 </ul>
@@ -95,13 +95,22 @@ window.MathJax = {
 <li>添加被Google、Microsoft搜索引擎检索功能</li>
 <li>添加评论功能</li>
 </ul>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>1.基本指令：创建</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;xxxx&quot;  #创建一个新的菜单项目</span><br><span class="line">hexo new post &quot;zzzz&quot;  #创建一篇新博客</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.关于 $Latex$ 公式问题（基于 GPT-4o 解决）  </span><br><span class="line">网上诸多解决方法均没有用，于是求助与GPT进行解决。</span><br><span class="line"></span><br><span class="line">```yml</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在_config.yml中添加代码解锁利用 mathjax 进行 Latex 公式编译功能</span></span><br><span class="line">math:</span><br><span class="line">  enable: true</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br><span class="line">    src: &quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;</span><br><span class="line">    options:</span><br><span class="line">      tex:</span><br><span class="line">        inlineMath: [[&quot;$&quot;, &quot;$&quot;], [&quot;\\(&quot;, &quot;\\)&quot;]]</span><br><span class="line">        displayMath: [[&quot;$$&quot;, &quot;$$&quot;], [&quot;\\[&quot;, &quot;\\]&quot;]]</span><br><span class="line">        tags: &quot;ams&quot;  # 让 \tag&#123;&#125; 生效</span><br><span class="line">        packages: &#123; &quot;[+]&quot;: [&quot;AMSmath&quot;, &quot;AMSsymbols&quot;] &#125;  </span><br></pre></td></tr></table></figure>
-
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li>关于 $Latex$ 公式问题（基于 GPT-4o 解决）<br>网上诸多解决方法均没有用，于是求助与GPT进行解决。</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 _config.yml 中添加代码解锁利用 mathjax 进行 Latex 公式编译功能</span></span><br><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">src:</span> <span class="string">&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">tex:</span></span><br><span class="line">        <span class="attr">inlineMath:</span> [[<span class="string">&quot;$&quot;</span>, <span class="string">&quot;$&quot;</span>], [<span class="string">&quot;\\(&quot;</span>, <span class="string">&quot;\\)&quot;</span>]]</span><br><span class="line">        <span class="attr">displayMath:</span> [[<span class="string">&quot;$$&quot;</span>, <span class="string">&quot;$$&quot;</span>], [<span class="string">&quot;\\[&quot;</span>, <span class="string">&quot;\\]&quot;</span>]]</span><br><span class="line">        <span class="attr">tags:</span> <span class="string">&quot;ams&quot;</span>  <span class="comment"># 让 \tag&#123;&#125; 生效</span></span><br><span class="line">        <span class="attr">packages:</span> &#123; <span class="string">&quot;[+]&quot;</span><span class="string">:</span> [<span class="string">&quot;AMSmath&quot;</span>, <span class="string">&quot;AMSsymbols&quot;</span>] &#125;  </span><br></pre></td></tr></table></figure>
 
 <p>随后在切到主题目录下的路径：\themes\Hingle-main\layout_partial 文件中的 head.ejs 文件末尾中添加相应代码调用（问 GPT 即可，css 格式我不知道怎么用 hexo 正常编译）。  </p>
-<p>在此基础上 hexo 还存在对于公式太长原有 $Latex$ 语法下行间公式使用 $\$ 无法换行的问题，很可能是 Markdown 解析器把 “&quot; 吞掉了；可以通过多添加一个”&quot;进行转译：<br>例如：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"> <span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">  V(x)=A + B x <span class="keyword">\\</span><span class="keyword">\\</span></span><br><span class="line">  +C x<span class="built_in">^</span>&#123;2&#125; + D x<span class="built_in">^</span>&#123;3&#125;</span><br><span class="line"> <span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p>在此基础上 hexo 还存在对于公式太长原有 $Latex$ 语法下行间公式使用 \ 无法换行的问题，很可能是 Markdown 解析器把 \ 吞掉了；可以通过多添加一个 \ 进行转译：<br>例如：</p>
+<pre><code class="language-latex">$$
+ \begin&#123;aligned&#125;
+  V(x)=A + B x \\\\
+  +C x^&#123;2&#125; + D x^&#123;3&#125;
+ \end&#123;aligned&#125;
+$$
+</code></pre>
+<p>代码块颜色问题暂时解决不了（其实代码显示上存在很多问题。。。<br>Hingle主题虽然好看简洁，但对于新手而言过于白板，作者也并没有对该主题的使用与修改做进阶的介绍，使新手在进行个性化时异常困难。并且初步使用感觉该主题对于数学排版的兼容性有些低，更加适合码农。</p>
+
         </article>
         <section class="post-near">
             <ul>
