@@ -3,7 +3,7 @@
   <head>
     
     <meta charset="UTF-8">
-    <title>Leaver continue fraction method--a detail introduction - LUCK WORLDLINE_HSY</title>
+    <title>Leaver连续分数法——一个较为详细的介绍 - LUCK WORLDLINE_HSY</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta property="og:site_name" content="LUCK WORLDLINE_HSY">
-    <meta property="og:title" content="Leaver continue fraction method--a detail introduction"/>
+    <meta property="og:title" content="Leaver连续分数法——一个较为详细的介绍"/>
     
 <meta name="generator" content="Hexo 7.3.0"></head>
 
@@ -45,7 +45,7 @@ window.MathJax = {
         <div class="has-child">
             <a href>分类</a>
             <div class="sub-menu">
-                <a class="category-link" href="/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/">回忆录</a><a class="category-link" href="/categories/%E9%BB%91%E6%B4%9E/">黑洞</a><a class="category-link" href="/categories/%E9%BB%91%E6%B4%9E%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1/">黑洞似正规模</a>
+                <a class="category-link" href="/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/">回忆录</a><a class="category-link" href="/categories/%E8%AE%B0%E5%BD%95/">记录</a><a class="category-link" href="/categories/%E9%BB%91%E6%B4%9E/">黑洞</a><a class="category-link" href="/categories/%E9%BB%91%E6%B4%9E%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1/">黑洞似正规模</a>
             </div>
         </div>
         
@@ -59,7 +59,7 @@ window.MathJax = {
     <main>
     <div class="wrap min">
         <section class="post-title">
-            <h2>Leaver continue fraction method--a detail introduction</h2>
+            <h2>Leaver连续分数法——一个较为详细的介绍</h2>
             <div class="post-meta">
                 <time class="date">2025.03.17</time>
             
@@ -69,9 +69,9 @@ window.MathJax = {
         </section>
         <article class="post-content">
         
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在得到各种微扰态下的波动方程后，我们还需要对其进行求解，对于ShwarzChild、R-N等一类球对称黑洞而言其波动方程为R-W方程，容易写为类薛定谔方程形式，并且由于球对称，仅需要考虑径向波动方程且径向坐标与本征值的关系也比较简单，我们可以利用诸如WKB近似等方法进行求解，这都比较容易，相关原理也有大量文献进行详细阐述，然而对于轴对称的克尔黑洞（及其他转动黑洞）则不然，其波动方程为Teukolsky方程，结构非常复杂，对其分离变量后将得到两个——角向与径向波动方程，具有本征值：$A_{lm}$，与$\omega$，并且它们与坐标的关系较为复杂，许多方法都不能很好的用于求解，直到Leaver提出连续分数法后才能够对克尔黑洞似正规模进行精确求解。笔者在阅读Leaver连续分数时发现尽管该方法被大量文献提及，但对其底层原理的描述却是寥寥几笔，跳步较大，令我等普通人难以理解，于是在经过一番调研与学习，摸索了连分数法的细节过程，并按自己的理解对该方法进行较为详细的阐述。  </p>
-<h2 id="径向与角向方程"><a href="#径向与角向方程" class="headerlink" title="径向与角向方程"></a>径向与角向方程</h2><p>$$<br>S_{lm}(\theta)&#x3D;<br>$$</p>
-
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在得到各种微扰态下的波动方程后，我们还需要对其进行求解，对于ShwarzChild、R-N等一类球对称黑洞而言其波动方程为R-W方程，容易写为类薛定谔方程形式，并且由于球对称，仅需要考虑径向波动方程且径向坐标与本征值的关系也比较简单，我们可以利用诸如WKB近似等方法进行求解，这都比较容易，相关原理也有大量文献进行详细阐述，然而对于轴对称的克尔黑洞（及其他转动黑洞）则不然，其波动方程为Teukolsky方程，结构非常复杂，对其分离变量后将得到两个——角向与径向波动方程，具有本征值：$A_{lm}$ 与 $\omega$，并且它们与坐标的关系较为复杂，许多方法都不能很好的用于求解，直到Leaver提出连续分数法后才能够对克尔黑洞似正规模进行精确求解。笔者在阅读Leaver连续分数时发现尽管该方法被大量文献提及，但对其底层原理的描述却是寥寥几笔，跳步较大，令我等普通人难以理解，于是在经过一番调研与学习，摸索了连分数法的细节过程，并按自己的理解对该方法进行较为详细的阐述。  </p>
+<h2 id="径向与角向方程"><a href="#径向与角向方程" class="headerlink" title="径向与角向方程"></a>径向与角向方程</h2><p>角向方程被写为：<br>$$<br>\frac{d}{du}[(1-u^{2})\frac{dS_{lm}}{du}]+(a^{2}\omega^{2}u^{2}-2a\omega s u + s - \frac{(m+su)^{2}}{1-u^{2}}+A_{lm})S_{lm}&#x3D;0  \tag{1}<br>$$<br>注意到$u&#x3D;\cos\theta$，这是为了方便进行连分数法计算。<br>径向方程被写为：<br>$$<br>(r^{2}-2rM+a^{2})\frac{d^{2}R_{lm}}{dr^{2}}+(s+1)(2r-1)\frac{dR_{lm}}{dr}+V(r)R_{lm}&#x3D;0  \tag{2}<br>$$<br>其中有：<br>$$<br>V(r)&#x3D;<a href="%5CDelta">(r^{2}+a^{2})^{2}\omega^{2}-2am\omega r+a^{2}m^{2}+is(am(2r-1) \-\omega(r^{2}-a^{2}))</a>^{-1}+(2is\omega r-a^{2}\omega^{2}-A_{lm})  \tag{3}<br>$$<br>上述方程均有本征值$A_{lm}$ , $\omega$ ，它们相互耦合。  </p>
+<h2 id="连续分数法"><a href="#连续分数法" class="headerlink" title="连续分数法"></a>连续分数法</h2>
         </article>
         <section class="post-near">
             <ul>
@@ -85,7 +85,7 @@ window.MathJax = {
         </section>
         
             <section class="post-tags">
-            <a class="-none-link" href="/tags/Continue-Fraction%EF%BC%8CBlack-hole-qnm/" rel="tag">Continue Fraction，Black hole qnm</a>
+            <a class="-none-link" href="/tags/Continue-Fraction%EF%BC%8C%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1/" rel="tag">Continue Fraction，似正规模</a>
             </section>
         
     
@@ -113,7 +113,7 @@ window.MathJax = {
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/03/17/%E6%97%A5%E5%BF%97/">建设日志</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/17/Leaver-continue-fraction-method-a-detail-introduction/">Leaver continue fraction method--a detail introduction</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/%E5%85%8B%E5%B0%94%E8%A3%B8%E5%A5%87%E7%8E%AF%E4%B8%8E%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1-1/">克尔裸奇环与似正规模-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/%E5%9B%9E%E5%BF%86%E5%BD%95/">我的物理与天文之路</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/03/17/%E6%97%A5%E5%BF%97/">建设日志</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/17/Leaver-continue-fraction-method-a-detail-introduction/">Leaver连续分数法——一个较为详细的介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/%E5%85%8B%E5%B0%94%E8%A3%B8%E5%A5%87%E7%8E%AF%E4%B8%8E%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1-1/">克尔裸奇环与似正规模-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/%E5%9B%9E%E5%BF%86%E5%BD%95/">我的物理与天文之路</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">时光机：</h3>
@@ -121,7 +121,7 @@ window.MathJax = {
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>
-                    <a href="/tags/Continue-Fraction%EF%BC%8CBlack-hole-qnm/" style="font-size: 10px;">Continue Fraction，Black hole qnm</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 10px;">日志</a> <a href="/tags/%E8%A3%B8%E5%A5%87%E7%8E%AF%EF%BC%8C%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1/" style="font-size: 10px;">裸奇环，似正规模</a> <a href="/tags/%E9%9A%8F%E7%AC%94%EF%BC%8C%E5%9B%9E%E5%BF%86/" style="font-size: 10px;">随笔，回忆</a>
+                    <a href="/tags/Continue-Fraction%EF%BC%8C%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1/" style="font-size: 10px;">Continue Fraction，似正规模</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 10px;">日志</a> <a href="/tags/%E8%A3%B8%E5%A5%87%E7%8E%AF%EF%BC%8C%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1/" style="font-size: 10px;">裸奇环，似正规模</a> <a href="/tags/%E9%9A%8F%E7%AC%94%EF%BC%8C%E5%9B%9E%E5%BF%86/" style="font-size: 10px;">随笔，回忆</a>
                 </div>
             </div>
         </section>

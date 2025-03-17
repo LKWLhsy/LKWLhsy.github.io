@@ -3,7 +3,7 @@
   <head>
     
     <meta charset="UTF-8">
-    <title>about - LUCK WORLDLINE_HSY</title>
+    <title>记录 - LUCK WORLDLINE_HSY</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta property="og:site_name" content="LUCK WORLDLINE_HSY">
-    <meta property="og:title" content="about"/>
+    <meta property="og:title" content=""/>
     
 <meta name="generator" content="Hexo 7.3.0"></head>
 
@@ -58,51 +58,41 @@ window.MathJax = {
 
     <main>
     <div class="wrap min">
-        <section class="page-title">
-            <h2>about</h2>
-        </section>
-        <article class="page-content">
-        
+        <section class="home-title">
             
-        </article>
+            <h1>“记录”</h1>
+        </section>
+        <section class="home-posts">
+    
+    <div class="post-item">
+        <h2>
+            <a href="/2025/03/17/%E6%97%A5%E5%BF%97/">建设日志</a>
+        </h2>
+    
+        <p>第一次建设个人主页，把建设历程记录一下，希望通过这个主页督促自己多学习，多写笔记。
+2025&amp;#x2F;3&amp;#x2F;16
+搭建完成个人博客：LKWLhsy.github.io 。 
+下载主题：...</p>
+    
+        <div class="post-meta">
+            <time class="date">2025.03.17</time>
+            
+                <span class="category"><a class="category-link" href="/categories/%E8%AE%B0%E5%BD%95/">记录</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a></span>
+            
+        </div>
+    </div>
+    
+</section>
+
+        <section class="page-navigator">
+            <span class="page-number current">1</span>
+        </section>
     </div>
 </main>
 
-include mixins
-
-extends partial/layout
-
-block site_title
-    != page.title + " · " + config.title
-
-block description
-    - var desc = page.desc || strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150);
-    meta(name="description", content=desc)
-
-block content
-    .autopagerize_page_element: .content: .post-page
-        include mixins
-        +make_post(page, true)
-        - var prev = page.prev ? page.prev.path : false;
-        - var next = page.next ? page.next.path : false;
-        .pagination
-            p.clearfix
-                if prev
-                    span.pre.pagbuttons
-                        a(role="navigation",href=url_for(prev), title=page.prev.title)
-                            i.fa.fa-angle-double-left
-                            |&nbsp;
-                            != __('prev_post')+': ' + page.prev.title
-                if next
-                    span &nbsp;
-                    span.next.pagbuttons
-                        a(role="navigation",href=url_for(next), title=page.next.title)
-                            != __('next_post')+': ' + page.next.title
-                            |&nbsp;
-                            i.fa.fa-angle-double-right
-        if theme.mathjax.enable
-            include mathjax
-        include partial/comments
     <footer>
     <div class="buttons">
         <button class="to-top" href="#"></button>
