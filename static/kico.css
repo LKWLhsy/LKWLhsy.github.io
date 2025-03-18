@@ -133,28 +133,39 @@ body::-webkit-scrollbar-track{ border-radius: 0 }
     padding-right: 0;
 }
 
-/* 让 MathJax 公式仅在超出时滚动，并保证方向为左右 */
+/* 默认情况下，禁止公式溢出 */
 mjx-container[jax="CHTML"][display="true"] {
-    overflow-x: auto !important;  /* 仅超出时才滚动 */
-    overflow-y: hidden !important;  /* 禁止上下滚动 */
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
     display: block !important;
-    max-width: 100%;
     white-space: nowrap; /* 防止公式换行 */
+    max-width: 100%;
 }
 
-/* 隐藏滚动条（可选） */
+/* 针对移动设备 (屏幕宽度小于 768px)，让公式保持可滚动 */
+@media (max-width: 768px) {
+    mjx-container[jax="CHTML"][display="true"] {
+        overflow-x: auto !important;  /* 让公式超出时滚动 */
+        overflow-y: hidden !important;  /* 禁止上下滚动 */
+        display: block !important;
+        white-space: nowrap; /* 防止公式换行 */
+        max-width: 100%;
+    }
+}
+
+/* 隐藏滚动条 (可选) */
 mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar {
     height: 6px; /* 仅水平方向显示细滚动条 */
-    width: 0; /* 避免出现垂直滚动条 */
+    width: 0;
 }
 
 mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3); /* 让滚动条更低调 */
+    background: rgba(0, 0, 0, 0.3); /* 更低调的滚动条 */
     border-radius: 3px;
 }
 
 mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5); /* 鼠标悬停时更明显 */
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* 保持行内公式正常显示 */
