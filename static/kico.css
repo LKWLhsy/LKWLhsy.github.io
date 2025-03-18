@@ -133,6 +133,37 @@ body::-webkit-scrollbar-track{ border-radius: 0 }
     padding-right: 0;
 }
 
+/* 让 MathJax 公式仅在超出时滚动，并保证方向为左右 */
+mjx-container[jax="CHTML"][display="true"] {
+    overflow-x: auto !important;  /* 仅超出时才滚动 */
+    overflow-y: hidden !important;  /* 禁止上下滚动 */
+    display: block !important;
+    max-width: 100%;
+    white-space: nowrap; /* 防止公式换行 */
+}
+
+/* 隐藏滚动条（可选） */
+mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar {
+    height: 6px; /* 仅水平方向显示细滚动条 */
+    width: 0; /* 避免出现垂直滚动条 */
+}
+
+mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3); /* 让滚动条更低调 */
+    border-radius: 3px;
+}
+
+mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5); /* 鼠标悬停时更明显 */
+}
+
+/* 保持行内公式正常显示 */
+mjx-container[jax="CHTML"][display="false"] {
+    overflow: visible !important;
+    display: inline-block !important; /* 确保行内公式在行内 */
+    white-space: normal;
+}
+
 /* 2 - 元素
 -------------------------------- */
 h1{ font-size: 2em }
