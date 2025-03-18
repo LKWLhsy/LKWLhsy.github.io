@@ -155,8 +155,8 @@ mjx-container[jax="CHTML"][display="true"] {
 
 /* 隐藏滚动条 (可选) */
 mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar {
-    height: 6px; /* 仅水平方向显示细滚动条 */
-    width: 0;
+    height: 0px; /* 仅水平方向显示细滚动条 */
+    width: 6px;
 }
 
 mjx-container[jax="CHTML"][display="true"]::-webkit-scrollbar-thumb {
