@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>Leaver连续分数法及其在黑洞的运用</title>
+      <link href="/2025/03/20/Leaver-continue-fraction-method-a-detail-introduction/"/>
+      <url>/2025/03/20/Leaver-continue-fraction-method-a-detail-introduction/</url>
+      
+        <content type="html"><![CDATA[<p>在得到各种微扰态下的波动方程后，我们还需要对其进行求解，对于 ShwarzChild、R-N 等一类球对称黑洞而言其波动方程为 R-W 方程，容易写为类薛定谔方程形式，并且由于球对称，仅需要考虑径向波动方程且径向坐标与本征值的关系也比较简单，我们可以利用诸如WKB近似等方法进行求解，这都比较容易，相关原理也有大量文献进行详细阐述，然而对于轴对称的克尔黑洞（及其他转动黑洞）则不然，其波动方程为 Teukolsky 方程，结构非常复杂，对其分离变量后将得到两个——角向与径向波动方程，具有本征值：$A_{lm}$ 与 $\omega$，并且它们与坐标的关系较为复杂，许多方法都不能很好的用于求解，直到Leaver提出连续分数法后才能够对克尔黑洞似正规模进行精确求解。笔者在阅读 Leaver 连续分数时发现尽管该方法被大量文献提及，但对其底层原理的描述却是寥寥几笔，跳步较大，令我等普通人难以理解，于是在经过一番调研与学习，摸索了连分数法的细节过程，并按自己的理解对该方法进行较为详细的阐述。  </p><h2 id="Kerr黑洞微扰的径向与角向方程"><a href="#Kerr黑洞微扰的径向与角向方程" class="headerlink" title="Kerr黑洞微扰的径向与角向方程"></a>Kerr黑洞微扰的径向与角向方程</h2><p>角向方程被写为：<br>$$<br>\frac{d}{du}[(1-u^{2})\frac{dS_{lm}}{du}]+(a^{2}\omega^{2}u^{2}-2a\omega s u + s - \frac{(m+su)^{2}}{1-u^{2}}+A_{lm})S_{lm}&#x3D;0  \tag{1}<br>$$<br>注意到$u&#x3D;\cos\theta$，这是为了方便进行连分数法计算。<br>径向方程被写为：<br>$$<br>(r^{2}-2rM+a^{2})\frac{d^{2}R_{lm}}{dr^{2}}+(s+1)(2r-1)\frac{dR_{lm}}{dr}+V(r)R_{lm}&#x3D;0  \tag{2}<br>$$<br>其中有：<br>$$<br>\begin{aligned}<br>V(r) &amp;&#x3D; \frac{(r^{2}+a^{2})^{2}\omega^{2} - 2am\omega r + a^{2}m^{2} + is(am(2r-1) - \omega(r^{2}-a^{2}))}{r^{2}-2rM+a^{2}} \\<br>&amp;\quad + (2is\omega r - a^{2}\omega^{2} - A_{lm})<br>\end{aligned}  \tag{3}<br>$$<br>上述方程均有本征值$A_{lm}$ , $\omega$ ，它们相互耦合。  </p><h2 id="连续分数法"><a href="#连续分数法" class="headerlink" title="连续分数法"></a>连续分数法</h2><p>关于 Leaver 连分数法的主要思想源于 1934-1935 年间对于氢分子双中心问题中薛定谔方程求解的方法。简单来说，就是先选取一组函数变化关系将二阶常微分方程进行化简，最后假设其解为一个 Frobenius 级数，此后便可以按照常规计算其系数的三项递推关系，由此得到连分数的定解方程。<br>而 Leaver 连分数法的关键就在于利用黑洞的边界条件来进行这个 Frobenius 级数的构造。  </p><p>为了理解级数的构造方法，我考虑了三类黑洞的求解文献中关于 Frobenius 级数的构造：R-N 黑洞及其 $Q&#x3D;M$ 极限情况、ShwarzChild 黑洞、Kerr 黑洞。</p><h3 id="氢分子的解法"><a href="#氢分子的解法" class="headerlink" title="氢分子的解法"></a>氢分子的解法</h3><p>Baber and Hassé 的文章中给了氢分子的薛定谔方程的解，他们的做法是对薛定谔方程完成分离变量后考虑等核情况得到：<br>$$<br>\frac{d}{d\lambda}[(\lambda^{2}-1)\frac{d\psi}{d\lambda}]+[A-p^{2}\lambda^{2}+2RN\lambda-\frac{m^{2}}{\lambda^{2}-1}]\psi&#x3D;0  \tag{4}<br>$$</p><p>$$<br>\frac{d}{d\mu}[(\mu^{2}-1)\frac{d\psi}{d\mu}]+[-A+p^{2}\mu^{2}-\frac{m^{2}}{\mu^{2}-1}]\psi&#x3D;0  \tag{5}<br>$$<br>对于 (5) 考虑变换 $\psi&#x3D;(1-\mu^{2})^{\frac{m}{2}}e^{p\mu}f(x)$ 以及 $x&#x3D;1-\mu$ 可以得到：<br>$$<br>x(2-x)\frac{d^{2}f}{dx^{2}}+2[px^{2}-(m+1+2p)x]+(m+1)\frac{df}{dx}+[2p(m+1)x-B]y&#x3D;0  \tag{6}<br>$$<br>在正则奇点 $x&#x3D;0$ 处便得到级数解：<br>$$<br>\psi&#x3D;(1-\mu^{2})^{\frac{m}{2}}e^{p\mu}\sum\limits_{n&#x3D;0}\limits^{\infty}a_{n}(1-\mu)^{n}  \tag{7}<br>$$<br>对比可以发现这对应于 Teukolsky 角向方程的解法。<br>对于方程 (4) ，由 Hylleraas &amp; Jaffé 给出级数解，做变换 $\psi&#x3D;(\lambda^{2}-1)^{\frac{m}{2}}f$ 给出：<br>$$<br>(\lambda^{2}-1)\frac{d^{2}f}{d\lambda^{2}}+2(m+1)\lambda \frac{df}{d\lambda}+[A+m(m+1)-p^{2}\lambda^{2}+2NR\lambda]f&#x3D;0  \tag{8}<br>$$<br>再做变换 $f&#x3D;e^{-p\lambda}(\lambda+1)^{\sigma}y(\xi)$，$\xi&#x3D;\frac{\lambda-1}{\lambda+1}$ 得到：<br>$$<br>\begin{aligned}<br>\xi(1-\xi)^{2}\frac{d^{2}y}{d\xi^{2}}+[-(m+2\sigma-1)\xi^{2}+2(\sigma-2p-1)\xi+m+1]\frac{dy}{d\xi}\\+[\sigma(\sigma+m)\xi+\sigma(1+2p)+m(m+1+\sigma)+(A-p^{2})]y&#x3D;0<br>\end{aligned}  \tag{9}<br>$$<br>$\sigma&#x3D;\frac{NR}{p}-m-1$ ，就得到其在正则奇点 $\xi&#x3D;0$ 处的级数解：<br>$$<br>f&#x3D;e^{-p\lambda}(\lambda+1)^{\sigma}\sum\limits_{n&#x3D;0}\limits^{\infty}c_{n}(\frac{\lambda-1}{\lambda+1})^{n}  \tag{10}<br>$$<br>后面对于 Teukolsky 径向方程就是按照这个形式来构建的。<br>这两个方程后来被归类为广义球面方程，而 Teukolsky 方程同样是这一类的方程，按上述方法求解这一类方程的核心步骤便是需要知道如何进行函数变换，换句话说需要知道怎么构造级数解。</p><h3 id="克尔黑洞"><a href="#克尔黑洞" class="headerlink" title="克尔黑洞"></a>克尔黑洞</h3><p>根据上述方法的思想，Leaver类比构造了 Teukolsky径向与角向方程的Frobenius级数解，得到系数三项递推关系而导出分离常数与复频率的定解方程。我们先介绍其主要过程。<br>对于角向方程</p><h3 id="极端-R-N-黑洞"><a href="#极端-R-N-黑洞" class="headerlink" title="极端 R-N 黑洞"></a>极端 R-N 黑洞</h3><p>对于 R-N 黑洞极限情况，$r_{-},r_{+}$ 视界合并为一个视界 $r_{H}$，体现在波动方程上为两个正则奇点合流为一个。具体为：<br>$$<br>r(r-1)\frac{d^{2}Z_{s}}{dr^{2}}+2\frac{dZ_{s}}{dr}-[\frac{\rho^{2}r^{5}}{(r-1)^{3}}+\frac{A_{r}}{r-1}-\frac{q_{s}}{r-1}+\frac{p_{r}}{r(r-1)}]Z_{s}&#x3D;0  \tag{11}<br>$$<br>其中取 $M&#x3D;\frac{1}{2}$ ，即视界在 $r&#x3D;1$ 处。我们知道对于黑洞存在一般边界条件：<br>$$<br>r\rightarrow r_{H}\quad \text{有}\quad Z_{s}\rightarrow e^{\rho r_{*}} \tag{12}<br>$$  </p><p>$$<br>r\rightarrow \infty \quad \text{有}\quad Z_{s}\rightarrow e^{-\rho r_{*}}  \tag{13}<br>$$  </p><p>其中乌龟坐标为 $r_{*}&#x3D;r+\ln(r-1)^{2}-\frac{1}{r-1}$ 。<br>那么边界条件即为：<br>$$<br>r\rightarrow r_{H}\quad \text{有}\quad Z_{s}\rightarrow e^{\rho r}(r-1)^{2\rho}e^{-\frac{\rho}{r-1}} \tag{14}<br>$$  </p><p>$$<br>r\rightarrow \infty \quad \text{有}\quad Z_{s}\rightarrow e^{-\rho r}r^{-2\rho}  \tag{15}<br>$$  </p><p>由此给出拟设的Frobenius级数解：  </p><p>$$<br>Z_{s}&#x3D;e^{\rho r}e^{-\frac{\rho}{r-1}}(r-1)^{2\rho}r^{-2\rho}e^{-\rho r}(r^{-2\rho}e^{-\rho r+2\rho})\sum\limits_{n&#x3D;0}\limits^{\infty}a_{n}u^{n}  \tag{16}<br>$$  </p><p>其中拟设了 $u&#x3D;\frac{r-2}{r}$ ，注意到该级数解相较于两个边界条件，还多了因子：$r^{-2\rho}e^{-\rho r+2\rho}$ , 根据Leaver在另一篇关于R-N黑洞似正规模计算的文章以及一篇关于Ads-Schwarz黑洞似正规模计算文章中的说法，这是对边界条件（无穷远处）施以某些因子进行放缩，使得在求递推关系时更加的方便。至于为什么拟设为：$u&#x3D;\frac{r-2}{r}$，这是根据最初文献中关于径向方程级数解 $\frac{r-1}{r+1}$ 的拟设形式，后续文章基本都按这个形式；而对于分子$r-2$ , 这是该文献作者特意避开视界而选择了一个常点，因为该作者研究认为在视界 $r&#x3D;1$ 处级数会发散(也即系数因子发散)。</p><h3 id="一般-R-N-黑洞"><a href="#一般-R-N-黑洞" class="headerlink" title="一般 R-N 黑洞"></a>一般 R-N 黑洞</h3><h3 id="史瓦西黑洞"><a href="#史瓦西黑洞" class="headerlink" title="史瓦西黑洞"></a>史瓦西黑洞</h3><h3 id="极端克尔黑洞"><a href="#极端克尔黑洞" class="headerlink" title="极端克尔黑洞"></a>极端克尔黑洞</h3><h3 id="超越视界—-裸奇点情形"><a href="#超越视界—-裸奇点情形" class="headerlink" title="超越视界—-裸奇点情形"></a>超越视界—-裸奇点情形</h3><h3 id="继续去看文献了，待续未完。。。。。。"><a href="#继续去看文献了，待续未完。。。。。。" class="headerlink" title="继续去看文献了，待续未完。。。。。。"></a>继续去看文献了，待续未完。。。。。。</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 似正规模 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Continue Fraction </tag>
+            
+            <tag> 黑洞 </tag>
+            
+            <tag> 似正规模 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>黑洞裸奇点与宇宙监督假设</title>
+      <link href="/2025/03/20/%E9%BB%91%E6%B4%9E%E8%A3%B8%E5%A5%87%E7%82%B9%E4%B8%8E%E5%AE%87%E5%AE%99%E7%9B%91%E7%9D%A3%E5%81%87%E8%AE%BE/"/>
+      <url>/2025/03/20/%E9%BB%91%E6%B4%9E%E8%A3%B8%E5%A5%87%E7%82%B9%E4%B8%8E%E5%AE%87%E5%AE%99%E7%9B%91%E7%9D%A3%E5%81%87%E8%AE%BE/</url>
+      
+        <content type="html"><![CDATA[<p>奇点自广义相对论提出以来便发展成为一大难题，时空在奇点处消失，物理定律<br>也将失效，裸奇点的存在更是将这一问题在宇宙中凸显出来；奇性定理却是表明奇点<br>不可避免，根据黑洞热力学，裸奇点的产生意味着温度低于绝对零度，将违背黑洞热<br>力学第三定律，因此彭罗斯提出宇宙监督机制来希望确保宇宙中不存在裸奇点。但就<br>理论而言，大质量坍缩必将形成奇点，但对于何种形式并无限制，而且至今为止的研<br>究表明裸奇点不仅可以存在，而且具有很多存在的情形，例如在流体坍缩、标量场与<br>引力场的自相似坍缩以及可能产生光滑裸奇点的临界坍缩，因此就宇宙监督假设而言，<br>研究裸奇点存在是否具有稳定性具有更加切实的意义 [1]。<br><br/><br>对于最一般的稳定黑洞解：克尔-纽曼黑洞，当电荷为零时化为克尔黑洞，当角动<br>量为零时化为 R-N 黑洞，当电荷与角动量均为零时化为史瓦西黑洞，在它们中心都存<br>在时空奇点；作为广义相对论最为经典的奇异性，当然需要讨论其成为裸奇点的可能。<br>因为视界的消失会导致黑洞内部奇性裸露，因此自然要考虑的便是黑洞视界的稳定性<br>问题，1957 年，Regge&amp;Wheeler 首次提出史瓦西黑洞微扰理论，研究其引力扰动的线<br>性稳定性 [2]，其后工作表明史瓦西黑洞的事件视界是线性稳定的 [3][4][5]；在 1973 年<br>Teukolsky 研究克尔黑洞微扰后 [6]，克尔黑洞与其极端自旋情形外视界与柯西视界在线<br>性扰动下的稳定性也得到证明与讨论 [7][8][9]，对于黑洞微扰的研究表明大部分黑洞都<br>是线性微扰稳定的，裸奇点并不会因为线性微扰而出现 [10]。另一方面，根据经典广义<br>相对论，R-N 黑洞与克尔黑洞、克尔-纽曼黑洞视界表达式可以知道，当电荷或角动量<br>达到一定值时视界将会消失，因此另一条研究路径即为考虑黑洞吸收粒子导致视界消<br>失从而形成裸露，Hubeny、Jacobson&amp;Sotirio 便表明极端 R-N、克尔黑洞在吸收粒子之<br>后奇点裸露 [11]，但后续研究表明黑洞的反作用力与自力效应将会防止 R-N 与克尔黑<br>洞奇点的暴露 [12]；因此，目前对于大多数极端黑洞的研究均表明其不会演变为裸奇点。<br><br/></p><p>尽管没有足够的证据表明黑洞本身会演变为裸奇点，但对于黑洞裸奇点本身的微扰稳定问题的研究仍然十分有意义，正如前文所说，理论上裸奇点形成的情况并不少见，而研究裸奇点本身的稳定性将对宇宙监督假设的理论研究提供帮助。Gustavo Dotti 等人在 2006-2012 年的一系列工作通过假设特征模态为纯虚数进行研究，认为 R-N 奇点与克尔奇环在 m&#x3D;0 等某些参数情况下并不线性微扰稳定 [13][14][15]，而 Chirenti 在2012 年研究了 R-N 裸奇点标量散射问题，计算得到了 R-N 裸奇点的似正频率并指出与普通 R-N 黑洞相比似正规模存在本质区别 [16]；且到 2020 年仍有对 R-N 奇点轴向引力扰动的细致研究 [17]。总而言之，至今关于黑洞裸奇点的问题仍然是有待解决。在2016 年发现的引力波更是让用观测数据去直接验证宇宙中裸奇点存在与否成为可能[18]，这也使得对于裸奇点微扰问题的研究变得更加具有实际意义。</p><p>[1] 黎俊彬, “裸奇点相关问题的数学进展,” 中国科学: 数学, vol. 54, no. 12, pp. 2141–<br>2154, 2024.<br><br/><br>[2] T. Regge and J. A. Wheeler, “Stability of a schwarzschild singularity,” Physical Review,vol. 108, no. 4, p. 1063, 1957.<br><br/><br>[3] R. H. Price, “Nonspherical perturbations of relativistic gravitational collapse. i. scalar and gravitational perturbations,” Physical Review D, vol. 5, no. 10, p. 2419, 1972.<br><br/><br>[4] B. S. Kay and R. M. Wald, “Linear stability of schwarzschild under perturbations which are non-vanishing on the bifurcation 2-sphere,” Classical and Quantum Gravity, vol. 4,no. 4, p. 893, 1987.<br><br/><br>[5] C. Vishveshwara, “Stability of the schwarzschild metric,” Physical Review D, vol. 1,no. 10, p. 2870, 1970.<br><br/><br>[6] S.A.Teukolsky,“Perturbationsofarotatingblackhole.i.fundamentalequationsforgrav-<br>itational, electromagnetic, and neutrino-field perturbations,” Astrophysical Journal, Vol.185, pp. 635-648 (1973), vol. 185, pp. 635–648, 1973.<br><br/><br>[7] B. F. Whiting, “Mode stability of the kerr black hole,” Journal of Mathematical Physics,vol. 30, no. 6, pp. 1301–1305, 1989.<br><br/><br>[8] M. Dafermos and Y. Shlapentokh-Rothman, “Time-translation invariance of scattering mapsandblue-shiftinstabilitiesonkerrblackholespacetimes,”CommunicationsinMathematical Physics, vol. 350, pp. 985–1016, 2017.<br><br/><br>[9] M. Dafermos and J. Luk, “The interior of dynamical vacuum black holes i: the,” 2017.<br><br/><br>[10] 蔡荣根, 曹利明, 李理, and 杨润秋, “时空奇异性和宇宙监督假设,” 中国科学: 物理学力学天文学, vol. 52, no. 11, pp. 5–56, 2022.<br><br/><br>[11] V. E. Hubeny, “Overcharging a black hole and cosmic censorship,” Physical Review D,vol. 59, no. 6, p. 064013, 1999.<br><br/><br>[12] T. Jacobson and T. P. Sotiriou, “Destroying black holes with test bodies,” in Journal of Physics: Conference Series, vol. 222, p. 012041, IOP Publishing, 2010.<br><br/><br>[13] G. Dotti, R. J. Gleiser, and J. Pullin, “Instability of charged and rotating naked singularities,” Physics Letters B, vol. 644, no. 5-6, pp. 289–293, 2007.<br><br/><br>[14] G. Dotti, R. J. Gleiser, I. F. Ranea-Sandoval, and H. Vucetich, “Gravitational instabilities in kerr spacetimes,” Classical and Quantum Gravity, vol. 25, no. 24, p. 245012, 2008.<br><br/><br>[15] G. Dotti, R. J. Gleiser, and I. F. Ranea-Sandoval, “Unstable fields in kerr spacetimes,”Classical and Quantum Gravity, vol. 29, no. 9, p. 095017, 2012.<br><br/><br>[16] C. Chirenti, A. Saa, and J. Skákala, “Quasinormal modes for the scattering on a naked reissner-nordström singularity,” Physical Review D—Particles, Fields, Gravitation, and Cosmology, vol. 86, no. 12, p. 124008, 2012.<br><br/><br>[17] P. Pradhan, “Black hole versus naked singularity via axial perturbation,” arXiv preprint arXiv:2008.12327, 2020.<br><br/><br>[18] B. P. Abbott, R. Abbott, T. Abbott, M. Abernathy, F. Acernese, K. Ackley, C. Adams,T. Adams, P. Addesso, R. Adhikari, et al., “Gw150914: The advanced ligo detectors in the era of first discoveries,” Physical review letters, vol. 116, no. 13, p. 131103, 2016.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 裸奇点 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 黑洞 </tag>
+            
+            <tag> 裸奇点 </tag>
+            
+            <tag> 黑洞微扰 </tag>
+            
+            <tag> 宇宙监督假设 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>待办项-物理</title>
       <link href="/2025/03/19/%E5%BE%85%E5%8A%9E%E9%A1%B9-%E7%89%A9%E7%90%86/"/>
       <url>/2025/03/19/%E5%BE%85%E5%8A%9E%E9%A1%B9-%E7%89%A9%E7%90%86/</url>
@@ -48,35 +108,6 @@
         <tags>
             
             <tag> 日志 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Leaver连续分数法及其在黑洞的运用</title>
-      <link href="/2025/03/18/Leaver-continue-fraction-method-a-detail-introduction/"/>
-      <url>/2025/03/18/Leaver-continue-fraction-method-a-detail-introduction/</url>
-      
-        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在得到各种微扰态下的波动方程后，我们还需要对其进行求解，对于 ShwarzChild、R-N 等一类球对称黑洞而言其波动方程为 R-W 方程，容易写为类薛定谔方程形式，并且由于球对称，仅需要考虑径向波动方程且径向坐标与本征值的关系也比较简单，我们可以利用诸如WKB近似等方法进行求解，这都比较容易，相关原理也有大量文献进行详细阐述，然而对于轴对称的克尔黑洞（及其他转动黑洞）则不然，其波动方程为 Teukolsky 方程，结构非常复杂，对其分离变量后将得到两个——角向与径向波动方程，具有本征值：$A_{lm}$ 与 $\omega$，并且它们与坐标的关系较为复杂，许多方法都不能很好的用于求解，直到Leaver提出连续分数法后才能够对克尔黑洞似正规模进行精确求解。笔者在阅读 Leaver 连续分数时发现尽管该方法被大量文献提及，但对其底层原理的描述却是寥寥几笔，跳步较大，令我等普通人难以理解，于是在经过一番调研与学习，摸索了连分数法的细节过程，并按自己的理解对该方法进行较为详细的阐述。  </p><h2 id="Kerr黑洞微扰的径向与角向方程"><a href="#Kerr黑洞微扰的径向与角向方程" class="headerlink" title="Kerr黑洞微扰的径向与角向方程"></a>Kerr黑洞微扰的径向与角向方程</h2><p>角向方程被写为：<br>$$<br>\frac{d}{du}[(1-u^{2})\frac{dS_{lm}}{du}]+(a^{2}\omega^{2}u^{2}-2a\omega s u + s - \frac{(m+su)^{2}}{1-u^{2}}+A_{lm})S_{lm}&#x3D;0  \tag{1}<br>$$<br>注意到$u&#x3D;\cos\theta$，这是为了方便进行连分数法计算。<br>径向方程被写为：<br>$$<br>(r^{2}-2rM+a^{2})\frac{d^{2}R_{lm}}{dr^{2}}+(s+1)(2r-1)\frac{dR_{lm}}{dr}+V(r)R_{lm}&#x3D;0  \tag{2}<br>$$<br>其中有：<br>$$<br>\begin{aligned}<br>V(r) &amp;&#x3D; \frac{(r^{2}+a^{2})^{2}\omega^{2} - 2am\omega r + a^{2}m^{2} + is(am(2r-1) - \omega(r^{2}-a^{2}))}{r^{2}-2rM+a^{2}} \\<br>&amp;\quad + (2is\omega r - a^{2}\omega^{2} - A_{lm})<br>\end{aligned}  \tag{3}<br>$$<br>上述方程均有本征值$A_{lm}$ , $\omega$ ，它们相互耦合。  </p><h2 id="连续分数法"><a href="#连续分数法" class="headerlink" title="连续分数法"></a>连续分数法</h2><p>关于 Leaver 连分数法的主要思想源于 1934-1935 年间对于氢分子双中心问题中薛定谔方程求解的方法。简单来说，就是先选取一组函数变化关系将二阶常微分方程进行化简，最后假设其解为一个 Frobenius 级数，此后便可以按照常规计算其系数的三项递推关系，由此得到连分数的定解方程。<br>而 Leaver 连分数法的关键就在于利用黑洞的边界条件来进行这个 Frobenius 级数的构造。  </p><p>为了理解级数的构造方法，我考虑了三类黑洞的求解文献中关于 Frobenius 级数的构造：R-N 黑洞及其 $Q&#x3D;M$ 极限情况、ShwarzChild 黑洞、Kerr 黑洞。</p><h3 id="氢分子的解法"><a href="#氢分子的解法" class="headerlink" title="氢分子的解法"></a>氢分子的解法</h3><p>Baber and Hassé 的文章中给了氢分子的薛定谔方程的解，他们的做法是对薛定谔方程完成分离变量后考虑等核情况得到：<br>$$<br>\frac{d}{d\lambda}[(\lambda^{2}-1)\frac{d\psi}{d\lambda}]+[A-p^{2}\lambda^{2}+2RN\lambda-\frac{m^{2}}{\lambda^{2}-1}]\psi&#x3D;0  \tag{4}<br>$$</p><p>$$<br>\frac{d}{d\mu}[(\mu^{2}-1)\frac{d\psi}{d\mu}]+[-A+p^{2}\mu^{2}-\frac{m^{2}}{\mu^{2}-1}]\psi&#x3D;0  \tag{5}<br>$$<br>对于 (5) 考虑变换 $\psi&#x3D;(1-\mu^{2})^{\frac{m}{2}}e^{p\mu}f(x)$ 以及 $x&#x3D;1-\mu$ 可以得到：<br>$$<br>x(2-x)\frac{d^{2}f}{dx^{2}}+2[px^{2}-(m+1+2p)x]+(m+1)\frac{df}{dx}+[2p(m+1)x-B]y&#x3D;0  \tag{6}<br>$$<br>在正则奇点 $x&#x3D;0$ 处便得到级数解：<br>$$<br>\psi&#x3D;(1-\mu^{2})^{\frac{m}{2}}e^{p\mu}\sum\limits_{n&#x3D;0}\limits^{\infty}a_{n}(1-\mu)^{n}  \tag{7}<br>$$<br>对比可以发现这对应于 Teukolsky 角向方程的解法。<br>对于方程 (4) ，由 Hylleraas &amp; Jaffé 给出级数解，做变换 $\psi&#x3D;(\lambda^{2}-1)^{\frac{m}{2}}f$ 给出：<br>$$<br>(\lambda^{2}-1)\frac{d^{2}f}{d\lambda^{2}}+2(m+1)\lambda \frac{df}{d\lambda}+[A+m(m+1)-p^{2}\lambda^{2}+2NR\lambda]f&#x3D;0  \tag{8}<br>$$<br>再做变换 $f&#x3D;e^{-p\lambda}(\lambda+1)^{\sigma}y(\xi)$，$\xi&#x3D;\frac{\lambda-1}{\lambda+1}$ 得到：<br>$$<br>\begin{aligned}<br>\xi(1-\xi)^{2}\frac{d^{2}y}{d\xi^{2}}+[-(m+2\sigma-1)\xi^{2}+2(\sigma-2p-1)\xi+m+1]\frac{dy}{d\xi}\\+[\sigma(\sigma+m)\xi+\sigma(1+2p)+m(m+1+\sigma)+(A-p^{2})]y&#x3D;0<br>\end{aligned}  \tag{9}<br>$$<br>$\sigma&#x3D;\frac{NR}{p}-m-1$ ，就得到其在正则奇点 $\xi&#x3D;0$ 处的级数解：<br>$$<br>f&#x3D;e^{-p\lambda}(\lambda+1)^{\sigma}\sum\limits_{n&#x3D;0}\limits^{\infty}c_{n}(\frac{\lambda-1}{\lambda+1})^{n}  \tag{10}<br>$$<br>后面对于 Teukolsky 径向方程就是按照这个形式来构建的。  </p><h3 id="极端-R-N-黑洞"><a href="#极端-R-N-黑洞" class="headerlink" title="极端 R-N 黑洞"></a>极端 R-N 黑洞</h3><p>对于 R-N 黑洞极限情况，$r_{-},r_{+}$ 视界合并为一个视界 $r_{H}$，体现在波动方程上为两个正则奇点合流为一个。具体为：<br>$$<br>r(r-1)\frac{d^{2}Z_{s}}{dr^{2}}+2\frac{dZ_{s}}{dr}-[\frac{\rho^{2}r^{5}}{(r-1)^{3}}+\frac{A_{r}}{r-1}-\frac{q_{s}}{r-1}+\frac{p_{r}}{r(r-1)}]Z_{s}&#x3D;0  \tag{11}<br>$$<br>其中取 $M&#x3D;\frac{1}{2}$ ，即视界在 $r&#x3D;1$ 处。我们知道对于黑洞存在一般边界条件：<br>$$<br>r\rightarrow r_{H}\quad \text{有}\quad Z_{s}\rightarrow e^{\rho r_{*}} \tag{12}<br>$$  </p><p>$$<br>r\rightarrow \infty \quad \text{有}\quad Z_{s}\rightarrow e^{-\rho r_{*}}  \tag{13}<br>$$  </p><p>其中乌龟坐标为 $r_{*}&#x3D;r+\ln(r-1)^{2}-\frac{1}{r-1}$ 。<br>那么边界条件即为：<br>$$<br>r\rightarrow r_{H}\quad \text{有}\quad Z_{s}\rightarrow e^{\rho r}(r-1)^{2\rho}e^{-\frac{\rho}{r-1}} \tag{14}<br>$$  </p><p>$$<br>r\rightarrow \infty \quad \text{有}\quad Z_{s}\rightarrow e^{-\rho r}r^{-2\rho}  \tag{15}<br>$$  </p><p>由此给出拟设的Frobenius级数解：  </p><p>$$<br>Z_{s}&#x3D;e^{\rho r}e^{-\frac{\rho}{r-1}}(r-1)^{2\rho}r^{-2\rho}e^{-\rho r}(r^{-2\rho}e^{-\rho r+2\rho})\sum\limits_{n&#x3D;0}\limits^{\infty}a_{n}u^{n}  \tag{16}<br>$$  </p><p>其中拟设了 $u&#x3D;\frac{r-2}{r}$ ，注意到该级数解相较于两个边界条件，还多了因子：$r^{-2\rho}e^{-\rho r+2\rho}$ , 根据Leaver在另一篇关于R-N黑洞似正规模计算的文章以及一篇关于Ads-Schwarz黑洞似正规模计算文章中的说法，这是对边界条件（无穷远处）施以某些因子进行放缩，使得在求递推关系时更加的方便。至于为什么拟设为：$u&#x3D;\frac{r-2}{r}$，这是根据最初文献中关于径向方程级数解 $\frac{r-1}{r+1}$ 的拟设形式，后续文章基本都按这个形式；而对于分子$r-2$ , 这是该文献作者特意避开视界而选择了一个常点，因为该作者研究认为在视界 $r&#x3D;1$ 处级数会发散。</p><h3 id="一般-R-N-黑洞"><a href="#一般-R-N-黑洞" class="headerlink" title="一般 R-N 黑洞"></a>一般 R-N 黑洞</h3><h3 id="史瓦西黑洞"><a href="#史瓦西黑洞" class="headerlink" title="史瓦西黑洞"></a>史瓦西黑洞</h3><h3 id="克尔黑洞"><a href="#克尔黑洞" class="headerlink" title="克尔黑洞"></a>克尔黑洞</h3><h3 id="极端克尔黑洞"><a href="#极端克尔黑洞" class="headerlink" title="极端克尔黑洞"></a>极端克尔黑洞</h3><h3 id="超越视界—-裸奇点情形"><a href="#超越视界—-裸奇点情形" class="headerlink" title="超越视界—-裸奇点情形"></a>超越视界—-裸奇点情形</h3><h3 id="继续去看文献了，待续未完。。。。。。"><a href="#继续去看文献了，待续未完。。。。。。" class="headerlink" title="继续去看文献了，待续未完。。。。。。"></a>继续去看文献了，待续未完。。。。。。</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 似正规模 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Continue Fraction </tag>
-            
-            <tag> 黑洞 </tag>
-            
-            <tag> 似正规模 </tag>
             
         </tags>
       

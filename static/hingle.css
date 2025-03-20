@@ -429,7 +429,7 @@ main img {
 
 /* - 文章简要 */
 .post-item{
-    margin-bottom: 2em;
+    margin-bottom: 5em;
     word-break: break-word;
 }
 .post-item:last-child{ margin-bottom: 0 }
