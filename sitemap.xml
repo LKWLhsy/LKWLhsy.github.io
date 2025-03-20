@@ -127,13 +127,6 @@
   </url>
   
   <url>
-    <loc>http://lkwlhsy.github.io/tags/%E6%97%A5%E5%BF%97/</loc>
-    <lastmod>2025-03-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://lkwlhsy.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2025-03-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -142,6 +135,13 @@
   
   <url>
     <loc>http://lkwlhsy.github.io/tags/%E5%9B%9E%E5%BF%86/</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://lkwlhsy.github.io/tags/%E6%97%A5%E5%BF%97/</loc>
     <lastmod>2025-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -185,6 +185,13 @@
   </url>
   
   <url>
+    <loc>http://lkwlhsy.github.io/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/</loc>
+    <lastmod>2025-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://lkwlhsy.github.io/categories/%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2025-03-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -192,7 +199,7 @@
   </url>
   
   <url>
-    <loc>http://lkwlhsy.github.io/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/</loc>
+    <loc>http://lkwlhsy.github.io/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/%E7%89%A9%E7%90%86%E4%B8%8E%E5%A4%A9%E6%96%87/</loc>
     <lastmod>2025-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -206,7 +213,7 @@
   </url>
   
   <url>
-    <loc>http://lkwlhsy.github.io/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/%E7%89%A9%E7%90%86%E4%B8%8E%E5%A4%A9%E6%96%87/</loc>
+    <loc>http://lkwlhsy.github.io/categories/%E8%A3%B8%E5%A5%87%E7%82%B9/%E4%BC%BC%E6%AD%A3%E8%A7%84%E6%A8%A1/</loc>
     <lastmod>2025-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
