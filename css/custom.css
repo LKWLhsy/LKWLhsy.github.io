@@ -1,26 +1,28 @@
 /* -----------------------------
-   块级公式自适应滑块（所有屏幕） 
-   仅作用于 MathJax Display / $$...$$
+   仅针对块级公式（MathJax Display / $$...$$）
+   所有屏幕宽度自适应滑块
+   行内公式不会换行
 ------------------------------ */
 
-/* 公式外层容器 */
+/* 外层容器 */
 .MathJax_Display {
-  max-width: 100%;                 /* 不超过父容器宽度 */
-  overflow-x: auto;                /* 超宽公式可水平滚动 */
+  max-width: 100%;                 /* 限制最大宽度为容器宽度 */
+  overflow-x: auto;                /* 超宽公式出现水平滑块 */
   -webkit-overflow-scrolling: touch; /* 移动端滑动流畅 */
   box-sizing: border-box;
-  padding: 0 0.5em;                /* 左右留点间距 */
+  padding: 0 0.5em;                /* 左右留边距 */
   margin: 1em 0;                    /* 上下间距 */
   display: block;                   /* 块级显示 */
-  text-align: center;               /* 居中显示公式 */
+  text-align: center;               /* 居中显示 */
+  white-space: nowrap;              /* 防止公式内容被强制换行 */
 }
 
-/* 内部公式保持原有尺寸，只允许滑动 */
+/* 内部公式保持原始尺寸，只允许滑动 */
 .MathJax_Display > .MathJax {
   display: inline-block;
 }
 
-/* 可选：在小屏幕上轻微缩小字体（防止滑块过宽） */
+/* 可选：窄屏稍微缩小字体 */
 @media (max-width: 768px) {
   .MathJax_Display {
     font-size: 0.95em;
