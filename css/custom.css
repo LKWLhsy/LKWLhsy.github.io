@@ -1,32 +1,17 @@
-/* -----------------------------
-   块级公式自适应滑块（所有屏幕）
-   仅影响块级公式 $$...$$
------------------------------- */
-
-/* 外层容器 */
-.MathJax_Display {
-  max-width: 100%;                 /* 限制最大宽度为容器宽度 */
-  overflow-x: auto;                /* 超宽公式出现水平滑块 */
-  -webkit-overflow-scrolling: touch; /* 移动端滑动平滑 */
-  box-sizing: border-box;
-  padding: 0 0.5em;                /* 左右留边距 */
-  margin: 1em 0;                    /* 上下间距 */
-  display: block;                   /* 块级显示 */
-  text-align: center;               /* 居中显示 */
-  white-space: nowrap;              /* 内部公式不换行 */
+/* 块级公式滚动条 */
+mjx-container[jax="CHTML"][display="true"],
+mjx-container[jax="SVG"][display="true"] {
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding: 2px 0;
 }
 
-/* 内部公式保持原始尺寸，只允许滑动 */
-.MathJax_Display > .MathJax {
-  display: inline-block;
+/* 行内公式正常显示 */
+mjx-container[jax="CHTML"]:not([display="true"]),
+mjx-container[jax="SVG"]:not([display="true"]) {
+    overflow: visible !important;
+    white-space: normal !important;
 }
-
-/* 可选：窄屏稍微缩小字体 */
-@media (max-width: 768px) {
-  .MathJax_Display {
-    font-size: 0.95em;
-  }
-}
-
 
 
